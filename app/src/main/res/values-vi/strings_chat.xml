@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="chat_greeting_morning">Chào buổi sáng</string>
+    <string name="chat_greeting_noon">Chào buổi trưa</string>
+    <string name="chat_greeting_afternoon">Chào buổi chiều</string>
+    <string name="chat_greeting_evening">Chào buổi tối</string>
+    <string name="chat_greeting_night">Đêm muộn rồi</string>
+    <string name="chat_empty_prompt">Mika có thể giúp gì cho bạn?</string>
+    <string name="chat_example_github_star">Mở https://github.com/wangzan101/mika và bấm Star dự án.</string>
+    <string name="chat_example_follow">Mở X, tìm kiếm Wang Zan (@wangzan101), và theo dõi tài khoản.</string>
+    <string name="chat_example_alarms">Đặt báo thức 7:00, 7:15 và 7:30 sáng mai.</string>
+    <string name="chat_working_on">Đang thao tác trong %1$s</string>
+    <string name="chat_working">Đang làm việc</string>
+    <string name="chat_wait_previous_task">Sẽ bắt đầu sau khi tác vụ trước hoàn tất</string>
+    <string name="chat_wait_unlock">Đang chờ bạn mở khóa màn hình</string>
+    <string name="chat_waiting_for_you">Đang chờ bạn</string>
+    <string name="chat_paused">Đã tạm dừng</string>
+    <string name="chat_queued">Đang xếp hàng</string>
+    <plurals name="chat_earlier_steps">
+        <item quantity="one">%1$d bước trước đó</item>
+        <item quantity="other">%1$d bước trước đó</item>
+    </plurals>
+    <string name="chat_background_note">Đang chạy trong nền — bạn có thể tiếp tục dùng điện thoại bình thường. Bấm vào màn hình thu nhỏ để phóng to.</string>
+    <string name="chat_placeholder_busy">Thêm yêu cầu hoặc chỉnh sửa…</string>
+    <string name="chat_placeholder_answer">Trả lời câu hỏi của Mika</string>
+    <string name="chat_placeholder_more">Nói thêm điều gì đó…</string>
+    <string name="chat_cannot_start">Chưa thể bắt đầu tác vụ</string>
+    <string name="chat_missing">Còn thiếu: %1$s</string>
+    <string name="chat_go_settings">Mở Cài đặt</string>
+    <string name="chat_menu">Menu</string>
+    <string name="chat_new">Đoạn chat mới</string>
+    <string name="chat_expand_steps">Hiện các bước</string>
+    <string name="chat_collapse_steps">Ẩn các bước</string>
+    <string name="chat_view_process">Xem quá trình thực hiện</string>
+    <string name="chat_unlock_body">Điện thoại của bạn đang khóa. Mika sẽ tiếp tục ngay khi bạn mở khóa.</string>
+    <string name="chat_refuse">Từ chối</string>
+    <string name="chat_allow_once">Cho phép lần này</string>
+    <string name="chat_continue">Tiếp tục</string>
+    <string name="chat_not_done">Chưa hoàn thành</string>
+    <string name="chat_stopped">Đã dừng.</string>
+    <string name="chat_resume_checkpoint">Tiếp tục từ điểm dừng</string>
+    <string name="chat_restart_task">Làm lại từ đầu</string>
+    <string name="chat_stop">Dừng</string>
+    <string name="chat_send">Gửi</string>
+    <string name="drawer_running_task">Tác vụ đang chạy</string>
+    <string name="drawer_running">Đang chạy</string>
+    <string name="drawer_yesterday">Hôm qua</string>
+    <string name="drawer_phone_not_ready">Điều khiển điện thoại chưa sẵn sàng</string>
+</resources>

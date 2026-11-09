@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="state_on">Bật</string>
+    <string name="state_off">Tắt</string>
+    <string name="state_not_running">Không chạy</string>
+    <string name="notifications_title">Thông báo</string>
+    <string name="channel_progress">Tiến độ tác vụ</string>
+    <string name="channel_result">Kết quả tác vụ</string>
+    <string name="notif_normal">Bình thường</string>
+    <string name="notif_heads_up">Bật lên trên màn hình</string>
+    <string name="notif_quiet">Chỉ hiện trong thanh thông báo</string>
+    <string name="heads_up_action">Bật</string>
+    <string name="banner_too_old">Không hỗ trợ điều khiển điện thoại</string>
+    <string name="banner_too_old_detail">Các tác vụ Chat, web và sandbox vẫn khả dụng; điều khiển điện thoại cần Android 12 trở lên</string>
+    <string name="learn_more">Tìm hiểu thêm</string>
+    <string name="banner_not_paired">Điều khiển điện thoại chưa thiết lập</string>
+    <string name="banner_not_paired_detail">Thiết lập để Mika có thể thao tác các ứng dụng trên máy của bạn</string>
+    <string name="banner_wireless_off">Gỡ lỗi không dây đang tắt</string>
+    <string name="banner_wireless_off_detail">Bật lên và Mika sẽ tự động kết nối</string>
+    <string name="banner_connecting">Đang kết nối điều khiển điện thoại</string>
+    <string name="banner_connecting_detail">Chỉ mất vài giây</string>
+    <string name="view">Xem</string>
+    <string name="banner_paused">Điều khiển điện thoại đã tạm dừng</string>
+</resources>

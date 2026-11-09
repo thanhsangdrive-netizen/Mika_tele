@@ -12,6 +12,7 @@
     <string name="language_portuguese" translatable="false">Português</string>
     <string name="language_russian" translatable="false">Русский</string>
     <string name="language_indonesian" translatable="false">Bahasa Indonesia</string>
+    <string name="language_vietnamese" translatable="false">Tiếng Việt</string>
     <string name="language_arabic" translatable="false">العربية</string>
     <string name="settings_basic">Common</string>
     <string name="settings_language_appearance">Language &amp; appearance</string>
@@ -189,4 +190,6 @@
     <string name="settings_token_budget_custom">Custom token budget</string>
     <string name="settings_token_budget_apply">Use</string>
     <string name="settings_token_budget_invalid">Enter a whole number from %1$s to %2$s.</string>
+    <string name="telegram_title">Telegram Bot</string>
+    <string name="telegram_sub">Remote control Mika via Telegram</string>
 </resources>

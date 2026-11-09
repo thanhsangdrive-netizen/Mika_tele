@@ -172,6 +172,7 @@ class TaskService : Service() {
 
     private fun channelFor(peer: ChannelPeer): Channel = when (peer.channelId) {
         LocalChannel.ID -> localChannel
+        com.wangzan101.mika.telegram.TelegramChannel.ID -> (application as com.wangzan101.mika.MikaApp).telegram.channel
         else -> checkNotNull((application as com.wangzan101.mika.MikaApp).wechat.channelFor(peer.channelId)) {
             "unknown channel ${peer.channelId}"
         }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="phone_title">Thiết lập điều khiển điện thoại</string>
+    <string name="phone_intro">Mika thao tác các ứng dụng giúp bạn trên một màn hình ảo riêng biệt, giúp bạn vẫn có thể sử dụng điện thoại bình thường. Mika sử dụng tính năng \"Gỡ lỗi USB\" và \"Gỡ lỗi không dây\" có sẵn của Android: chỉ cần ghép nối một lần và Mika sẽ tự động kết nối từ đó về sau — không cần máy tính.</string>
+    <string name="phone_later">Để sau</string>
+    <string name="phone_bar_title">Điều khiển điện thoại</string>
+    <string name="phone_step_dev">Bật Tùy chọn nhà phát triển</string>
+    <string name="phone_step_dev_body">Vào “Thông tin điện thoại” trong Cài đặt và bấm “Số bản dựng” (Build number) 7 lần cho đến khi thấy thông báo “Bạn đã là nhà phát triển”.</string>
+    <string name="phone_step_dev_action">Mở Thông tin điện thoại</string>
+    <string name="phone_done_on">Đã bật</string>
+    <string name="phone_step_usb">Bật Gỡ lỗi USB</string>
+    <string name="phone_open_dev_options">Mở Tùy chọn nhà phát triển</string>
+    <string name="phone_step_a11y">Bật Trợ năng cho Mika</string>
+    <string name="phone_step_wireless">Bật Gỡ lỗi không dây</string>
+    <string name="phone_step_pair">Ghép nối bằng mã</string>
+    <string name="phone_step_connect">Tự động kết nối</string>
+    <string name="phone_paired">Đã ghép nối</string>
+    <string name="phone_connected">Đã kết nối</string>
+    <string name="phone_turned_on_next">Tôi đã bật, tiếp tục</string>
+    <string name="phone_port_found">Đã tìm thấy cửa sổ ghép nối. Hãy nhập mã hiển thị trên màn hình.</string>
+</resources>

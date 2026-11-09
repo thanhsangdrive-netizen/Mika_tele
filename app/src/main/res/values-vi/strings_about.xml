@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_tagline">Trợ lý AI cá nhân trên điện thoại, tự động làm việc giúp bạn</string>
+    <string name="about_check">Kiểm tra cập nhật</string>
+    <string name="about_check_sub">Tải phiên bản mới từ GitHub Releases</string>
+    <string name="about_check_sub_new">Có phiên bản mới</string>
+    <string name="about_up_to_date">Đang ở phiên bản mới nhất</string>
+    <string name="about_changelog">Nhật ký thay đổi</string>
+    <string name="about_feedback">Gửi phản hồi</string>
+    <string name="about_repo">Mã nguồn</string>
+    <string name="about_guide">Hướng dẫn &amp; đóng góp</string>
+    <string name="about_license_link">Giấy phép Apache-2.0</string>
+    <string name="about_version">Phiên bản %1$s</string>
+    <string name="about_build">Bản dựng %1$s</string>
+</resources>
