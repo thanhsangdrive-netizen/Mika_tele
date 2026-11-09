@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mika-telegram"
+version = "0.1.0"
+description = "Telegram bot connector for Mika's versioned phone task API"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+dependencies = []
+
+[project.scripts]
+mika-telegram = "mika_telegram.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
