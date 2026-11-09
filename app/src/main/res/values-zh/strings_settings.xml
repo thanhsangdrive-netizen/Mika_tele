@@ -56,6 +56,8 @@
     <string name="settings_keep_on_sub">任务进行时屏幕不熄灭(没在用时照常变暗),结束后恢复</string>
     <string name="settings_mute">被操作的 App 静音</string>
     <string name="settings_mute_sub">Mika 操作的 App 不出声,你接手时恢复声音</string>
+    <string name="settings_use_main_screen">在前台主屏幕操作</string>
+    <string name="settings_use_main_screen_sub">直接在真实主屏上操作，而非后台虚拟屏</string>
     <string name="settings_pace">操作节奏</string>
     <string name="settings_pace_fast">快</string>
     <string name="settings_pace_fast_detail">步与步之间不停，文字一次填好</string>

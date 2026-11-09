@@ -595,22 +595,31 @@ class TaskRun(
                 }.also { shell.asBinder().linkToDeath(it, 0) }
                 shellBinder = shell.asBinder()
                 side.launch { conn.shell.map { it != null }.collect { shellUp.value = it } }
+                val useMainScreen = FeatureFlags.get(service).useMainScreen()
                 val agentDisplay = LazyAgentDisplay(metrics.widthPixels, metrics.heightPixels) {
-                    suspend fun create() = resources.acquire(Dispatchers.IO, AgentDisplay::release) { AgentDisplay(shell, metrics.widthPixels, metrics.heightPixels, metrics.densityDpi, service.getSystemService(DisplayManager::class.java)) }
-                    try {
-                        create()
-                    } catch (e: Exception) {
-                        if (e is CancellationException || e !is IllegalStateException && e !is RemoteException) throw e
-                        if (!parallel || !service.otherRunHasDisplay(this@TaskRun)) throw e
-                        // 外壳建不出第二块屏:这次运行期间不再并行;本任务排在后面,等别的任务的屏都放掉再建
-                        service.taskState.markSecondDisplayFailed()
-                        publish(TaskState.Held(GateReason.queued(WAITING_DISPLAY)))
-                        while (service.otherRunHasDisplay(this@TaskRun)) delay(DISPLAY_RETRY_MS)
-                        create()
-                    }.also { d ->
-                        _displayId.value = d.displayId
-                        side.launch { d.frames.collect { if (dispatcher?.surface != WEB) _frames.value = if (previewAllowed()) it else null } }
-                        side.launch { appAccess.state.collect { if (dispatcher?.surface != WEB && !previewAllowed()) _frames.value = null } }
+                    if (useMainScreen) {
+                        com.wangzan101.mika.cap.phone.display.MainAgentDisplay(a11y, metrics.widthPixels, metrics.heightPixels).also { d ->
+                            _displayId.value = d.displayId
+                        }
+                    } else {
+                        suspend fun create() = resources.acquire(Dispatchers.IO, com.wangzan101.mika.cap.phone.display.AgentDisplayPort::release) {
+                            AgentDisplay(shell, metrics.widthPixels, metrics.heightPixels, metrics.densityDpi, service.getSystemService(DisplayManager::class.java))
+                        }
+                        try {
+                            create()
+                        } catch (e: Exception) {
+                            if (e is CancellationException || e !is IllegalStateException && e !is RemoteException) throw e
+                            if (!parallel || !service.otherRunHasDisplay(this@TaskRun)) throw e
+                            // 外壳建不出第二块屏:这次运行期间不再并行;本任务排在后面,等别的任务的屏都放掉再建
+                            service.taskState.markSecondDisplayFailed()
+                            publish(TaskState.Held(GateReason.queued(WAITING_DISPLAY)))
+                            while (service.otherRunHasDisplay(this@TaskRun)) delay(DISPLAY_RETRY_MS)
+                            create()
+                        }.also { d ->
+                            _displayId.value = d.displayId
+                            side.launch { d.frames.collect { if (dispatcher?.surface != WEB) _frames.value = if (previewAllowed()) it else null } }
+                            side.launch { appAccess.state.collect { if (dispatcher?.surface != WEB && !previewAllowed()) _frames.value = null } }
+                        }
                     }
                 }
                 val audio = recovery.audioMute(shell, key).also { mute = it }

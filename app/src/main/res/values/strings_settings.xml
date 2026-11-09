@@ -68,6 +68,8 @@
     <string name="settings_keep_on_sub">The screen stays on while a task runs (it can still dim when you’re not using it), then goes back to normal</string>
     <string name="settings_mute">Mute the app being used</string>
     <string name="settings_mute_sub">Apps Mika is using stay silent; sound returns when you take over</string>
+    <string name="settings_use_main_screen">Operate on main screen</string>
+    <string name="settings_use_main_screen_sub">Operate directly on the real screen instead of the background virtual display</string>
     <string name="settings_pace">Operating pace</string>
     <string name="settings_pace_fast">Fast</string>
     <string name="settings_pace_fast_detail">No pauses between steps; text is filled in at once</string>

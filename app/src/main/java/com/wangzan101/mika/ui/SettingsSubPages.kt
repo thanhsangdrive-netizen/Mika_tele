@@ -192,6 +192,7 @@ data class ParallelSetting(val max: Int, val limit: ParallelLimit)
 fun DuringWorkScreen(
     keepScreenOn: Boolean, onKeepScreenOn: (Boolean) -> Unit,
     muteTarget: Boolean, onMuteTarget: (Boolean) -> Unit,
+    useMainScreen: Boolean = false, onUseMainScreen: (Boolean) -> Unit = {},
     parallel: ParallelSetting?, onParallelMax: (Int) -> Unit, onBack: () -> Unit,
     autonomous: Boolean = false, onAutonomous: (Boolean) -> Unit = {},
     operatingPace: OperatingPace = OperatingPace.DEFAULT, onOperatingPace: (OperatingPace) -> Unit = {},
@@ -216,6 +217,12 @@ fun DuringWorkScreen(
             }
             ListRow(MikaIcons.Mute, stringResource(R.string.settings_mute), stringResource(R.string.settings_mute_sub), onClick = { onMuteTarget(!muteTarget) }) {
                 MikaSwitch(muteTarget, onMuteTarget, Modifier.testTag("work-mute-target"))
+            }
+            ListRow(
+                MikaIcons.Phone, stringResource(R.string.settings_use_main_screen), stringResource(R.string.settings_use_main_screen_sub),
+                onClick = { onUseMainScreen(!useMainScreen) }
+            ) {
+                MikaSwitch(useMainScreen, onUseMainScreen, Modifier.testTag("work-use-main-screen"))
             }
             ListRow(
                 MikaIcons.Clock, stringResource(R.string.settings_step_limit),

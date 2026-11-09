@@ -157,6 +157,13 @@ class FeatureFlags(private val prefs: SharedPreferences) {
         awaitClose { prefs.unregisterOnSharedPreferenceChangeListener(listener) }
     }.distinctUntilChanged()
 
+    /** 是否在前台直接操作真实主屏 (false 为背景虚拟屏，true 为直接操作主屏)。 */
+    fun useMainScreen(): Boolean = prefs.getBoolean(USE_MAIN_SCREEN, false)
+
+    fun setUseMainScreen(on: Boolean) {
+        prefs.edit().putBoolean(USE_MAIN_SCREEN, on).commit()
+    }
+
     /** 胶囊停在哪:左边还是右边、高度占可摆范围的比例;没拖过时在右上角。 */
     fun capsuleDock(): CapsuleDock = CapsuleDock(
         if (prefs.getString(CAPSULE_SIDE, null) == DockSide.Left.name) DockSide.Left else DockSide.Right,
@@ -201,6 +208,7 @@ class FeatureFlags(private val prefs: SharedPreferences) {
         private const val CAPSULE_MODE = "capsule_mode"
         private const val CAPSULE_IDLE_OPACITY = "capsule_idle_opacity"
         private const val QUIT_REQUESTED = "quit_requested"
+        private const val USE_MAIN_SCREEN = "use_main_screen"
         private const val CAPSULE_SIDE = "capsule_side"
         private const val CAPSULE_HEIGHT = "capsule_height"
         private const val CAPSULE_CARD_HEIGHT = "capsule_card_height"

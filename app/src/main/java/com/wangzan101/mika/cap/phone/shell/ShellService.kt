@@ -161,8 +161,8 @@ class ShellService(
         info.javaClass.getField("displayGroupId").getInt(info)
     }.getOrNull()
 
-    /** 只往这个服务自己建的虚拟屏上启动,调用方传错屏号(比如主屏)也不会打扰用户。 */
-    private fun ownDisplay(displayId: Int): Boolean = synchronized(displays) { displayId in displays }
+    /** 只往这个服务自己建的虚拟屏或主屏上启动。 */
+    private fun ownDisplay(displayId: Int): Boolean = synchronized(displays) { displayId in displays || displayId == Display.DEFAULT_DISPLAY }
 
     override fun releaseDisplay(displayId: Int) {
         awake.stop(displayId)
@@ -249,7 +249,7 @@ class ShellService(
     private fun start(displayId: Int, packageName: String, userId: Int): Int = synchronized(launchLock) {
         if (!ownDisplay(displayId)) return START_ERROR
         try {
-            if (inUseOnMainScreen(packageName, userId)) return START_IN_USE_ON_MAIN
+            if (displayId != Display.DEFAULT_DISPLAY && inUseOnMainScreen(packageName, userId)) return START_IN_USE_ON_MAIN
             if (onOtherOwnDisplay(listOf(packageName), displayId, userId)) return START_IN_USE_BY_OTHER
         } catch (t: Throwable) {
             // 看不清主屏状态时宁可不启动,也不冒险打扰用户
@@ -260,7 +260,8 @@ class ShellService(
         if (resumeKept(displayId, packageName, userId)) return START_OK
         val intent = launchIntent(packageName, userId) ?: return START_NOT_FOUND
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        val options = ActivityOptions.makeBasic().setLaunchDisplayId(displayId).toBundle()
+        val options = if (displayId == Display.DEFAULT_DISPLAY) ActivityOptions.makeBasic().toBundle()
+            else ActivityOptions.makeBasic().setLaunchDisplayId(displayId).toBundle()
         // 另一份用户里的先走桌面打开图标的那条路:有的系统对程序启动的另一份先弹「用哪一个打开」,桌面这条路不弹
         val component = intent.component
         if (userId != myUser && component != null && startAsLauncher(component, userId, options)) return START_OK
@@ -1128,7 +1129,7 @@ class ShellService(
 
     @SuppressLint("DiscouragedPrivateApi")
     override fun injectAsciiText(displayId: Int, taskId: Int, packageName: String, text: String): Int {
-        if (displayId <= Display.DEFAULT_DISPLAY || !ownDisplay(displayId) || taskId < 0 || !AsciiTextKeys.supports(text)) {
+        if (displayId < Display.DEFAULT_DISPLAY || !ownDisplay(displayId) || taskId < 0 || !AsciiTextKeys.supports(text)) {
             return AsciiTextKeys.NOT_SENT
         }
         val (events, targetUid) = runCatching {
